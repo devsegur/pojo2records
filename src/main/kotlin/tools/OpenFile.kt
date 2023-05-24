@@ -1,6 +1,7 @@
 package tools
 
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.psi.PsiFile
 import java.io.File
 
@@ -15,8 +16,8 @@ class OpenFile {
         }
 
         fun getFilePath(e: AnActionEvent): File {
-            val result = e.dataContext.toString().split("//").last()
-            return File(result)
+            val result = e.getData(CommonDataKeys.VIRTUAL_FILE)?.path
+            return result?.let { File(it) }!!
         }
     }
 }

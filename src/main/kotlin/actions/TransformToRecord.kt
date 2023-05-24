@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiFile
+import org.jetbrains.kotlin.idea.core.util.toPsiFile
 import service.TransformFile
 import tools.OpenFile
 import tools.OpenFile.Companion.openPsiFileAsFile
@@ -13,18 +14,30 @@ import tools.OpenFile.Companion.openPsiFileAsFile
 class TransformToRecord : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
-        println(e.dataContext)
-        e.dataContext
-        if (isPackageAction(e))
-            getAllFilesInPackage(e).forEach { psiFile: PsiFile? ->
-                TransformFile().replaceClassToRecord(psiFile!!, e.project!!, openPsiFileAsFile(psiFile)!!)
+        val project = e.project!!
+        when {
+            isPackageAction(e) -> getAllFilesInPackage(e).forEach { psiFile: PsiFile? ->
+                TransformFile().replaceClassToRecord(psiFile!!, project, openPsiFileAsFile(psiFile)!!)
             }
-        else if (isFileAction(e)) {
-            val file = OpenFile.getFilePath(e)
-            val project = e.project!!
-            TransformFile().replaceClassToRecord(file, project)
+
+            isMoreThanOneFile(e) -> {
+                val psiElement = e.getData(CommonDataKeys.VIRTUAL_FILE_ARRAY)
+                psiElement?.forEach {
+                    it.toPsiFile(project)?.let { psiFile ->
+                        TransformFile().replaceClassToRecord(psiFile, project, openPsiFileAsFile(psiFile)!!)
+                    }
+                }
+            }
+
+            isFileAction(e) -> {
+                val file = OpenFile.getFilePath(e)
+                TransformFile().replaceClassToRecord(file, project)
+            }
         }
     }
+
+    private fun isMoreThanOneFile(e: AnActionEvent) =
+        (e.getData(CommonDataKeys.VIRTUAL_FILE_ARRAY)?.size ?: 0) > 1
 
     private fun isFileAction(event: AnActionEvent): Boolean {
         val psiElement = event.getData(CommonDataKeys.PSI_ELEMENT)
