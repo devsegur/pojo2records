@@ -14,7 +14,11 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description>
-        That plugin transforms Pojo to Records. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        That plugin transforms Pojo to Records.
+
+        To use it, select a class or a package and click on the right mouse button, then select Pojo2Record.
+        The plugin will create convert a class to a record.
+
     </description>
 
     <!-- Product and plugin compatibility requirements.
