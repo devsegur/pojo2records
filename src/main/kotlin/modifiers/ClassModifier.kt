@@ -17,15 +17,15 @@ class ClassModifier {
             text.split("\n").forEach {
                 if (it.contains("public class")) {
                     val replace = it.replace("class", "record")
-                    val fields = fields.reduce { acc, s -> "$acc,$s" }
-                    val split = replace.replace(" {", "($fields) { ")
+                    val fieldsReduced = fields.reduce { acc, s -> "$acc,$s" }
+                    val split = replace.replace(" {", "($fieldsReduced) { ")
                     fileContentReplaced.add(split)
                 } else {
                     fileContentReplaced.add(it)
                 }
             }
 
-            val reduce: String = fileContentReplaced.map { s -> s + "\n" }.reduce { acc, s -> acc + s }
+            val reduce: String = fileContentReplaced.map { s -> "\n$s\n" }.reduce { acc, s -> acc + s }
             file.writeText(reduce)
         }
     }

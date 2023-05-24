@@ -1,13 +1,10 @@
 package service
 
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.util.NlsSafe
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi.PsiClass
-import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiJavaFile
-import com.intellij.psi.PsiManager
-import com.intellij.psi.PsiMethod
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import io.ktor.util.reflect.*
 import modifiers.ClassModifier.Companion.convertToRecord
@@ -32,11 +29,19 @@ class TransformFile {
                     else -> println(psiMethod.toString())
                 }
             }
-            val fieldNames = psiClass.fields.map { "${it.type.presentableText} ${it.name}" }
+            val fieldNames = psiClass.fields.map {
+                "${annotations(it)} ${it.type.presentableText} ${it.name}"
+            }
             deleteFields(project, psiClass)
 
             convertToRecord(psiClass.text, file, fieldNames)
         }
+    }
+
+    private fun annotations(it: PsiField): String {
+        val result = it.annotations.filterNotNull().mapNotNull { ann -> ann.text }
+        return if (result.isEmpty()) ""
+        else result.reduce { ann, ann2 -> "$ann\n$ann2" }
     }
 
 
