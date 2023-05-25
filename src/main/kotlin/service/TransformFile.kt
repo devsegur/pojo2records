@@ -1,7 +1,6 @@
 package service
 
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.util.NlsSafe
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.*
@@ -25,8 +24,6 @@ class TransformFile {
                     psiMethod?.name?.matches(Regex("equals|hashCode")) == true -> deleteMethod(project, psiMethod)
 
                     psiMethod?.name?.startsWith("get") == true -> renameMethod(psiMethod, project)
-
-                    else -> println(psiMethod.toString())
                 }
             }
             val fieldNames = psiClass.fields.map {
@@ -34,7 +31,7 @@ class TransformFile {
             }
             deleteFields(project, psiClass)
 
-            convertToRecord(psiClass.text, file, fieldNames)
+            convertToRecord(psiClass.text, project, psiFile, file, fieldNames, psiClass)
         }
     }
 
@@ -49,7 +46,8 @@ class TransformFile {
         val virtualFile: VirtualFile? = LocalFileSystem.getInstance().findFileByNioFile(file.toPath())
 
         val psiManager = PsiManager.getInstance(project)
-        replaceClassToRecord(psiManager.findFile(virtualFile!!) as PsiJavaFile, project, file)
+        val psiFile = psiManager.findFile(virtualFile!!) as PsiJavaFile
+        replaceClassToRecord(psiFile, project, file)
     }
 
 }
