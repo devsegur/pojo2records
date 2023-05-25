@@ -31,7 +31,7 @@ class TransformFile {
             }
             deleteFields(project, psiClass)
 
-            convertToRecord(psiClass.text, project, psiFile, file, fieldNames, psiClass)
+            convertToRecord(psiClass.text, project, psiFile, file, fieldNames)
         }
     }
 
