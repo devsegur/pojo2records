@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.allfine.software.plugin.pojo2record"
-version = "1.0.5"
+version = "1.0.6"
 
 repositories {
     mavenCentral()
@@ -14,7 +14,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2022.2.5")
+    version.set("2023.3.2")
     type.set("IC") // Target IDE Platform
 
     plugins.set(listOf("com.intellij.java", "org.intellij.intelliLang", "org.jetbrains.kotlin"))
@@ -32,7 +32,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("222")
-        untilBuild.set("232.*")
+        untilBuild.set("233.*")
     }
 
     signPlugin {
