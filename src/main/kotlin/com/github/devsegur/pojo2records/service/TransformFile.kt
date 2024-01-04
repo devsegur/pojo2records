@@ -1,4 +1,4 @@
-package service
+package com.github.devsegur.pojo2records.service
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
@@ -6,10 +6,10 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import io.ktor.util.reflect.*
-import modifiers.ClassModifier.Companion.convertToRecord
-import modifiers.DeleteModifier.Companion.deleteFields
-import modifiers.DeleteModifier.Companion.deleteMethod
-import modifiers.RenameModifier.Companion.renameMethod
+import com.github.devsegur.pojo2records.modifiers.ClassModifier.Companion.convertToRecord
+import com.github.devsegur.pojo2records.modifiers.DeleteModifier.Companion.deleteFields
+import com.github.devsegur.pojo2records.modifiers.DeleteModifier.Companion.deleteMethod
+import com.github.devsegur.pojo2records.modifiers.RenameModifier.Companion.renameMethod
 import java.io.File
 
 

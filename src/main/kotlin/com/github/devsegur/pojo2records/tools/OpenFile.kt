@@ -1,4 +1,4 @@
-package tools
+package com.github.devsegur.pojo2records.tools
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys

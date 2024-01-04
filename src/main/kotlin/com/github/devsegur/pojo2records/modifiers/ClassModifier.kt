@@ -1,4 +1,4 @@
-package modifiers
+package com.github.devsegur.pojo2records.modifiers
 
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.project.Project

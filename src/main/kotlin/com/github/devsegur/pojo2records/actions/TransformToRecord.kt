@@ -1,16 +1,15 @@
-package actions
+package com.github.devsegur.pojo2records.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
-import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiFile
 import org.jetbrains.kotlin.idea.core.util.toPsiFile
-import service.TransformFile
-import tools.OpenFile
-import tools.OpenFile.Companion.openPsiFileAsFile
+import com.github.devsegur.pojo2records.service.TransformFile
+import com.github.devsegur.pojo2records.tools.OpenFile
+import com.github.devsegur.pojo2records.tools.OpenFile.Companion.openPsiFileAsFile
 
 class TransformToRecord : AnAction() {
 

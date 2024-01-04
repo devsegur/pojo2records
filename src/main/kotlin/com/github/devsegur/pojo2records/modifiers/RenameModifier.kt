@@ -1,10 +1,10 @@
-package modifiers
+package com.github.devsegur.pojo2records.modifiers
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.openapi.impl.JavaRenameRefactoringImpl
 import com.intellij.refactoring.rename.RenameUtil
-import modifiers.DeleteModifier.Companion.deleteMethod
+import com.github.devsegur.pojo2records.modifiers.DeleteModifier.Companion.deleteMethod
 import org.jetbrains.kotlin.lombok.utils.decapitalize
 
 class RenameModifier {

@@ -24,7 +24,7 @@
     </extensions>
     <idea-version since-build="202.0"/>
     <actions>
-        <action class="actions.TransformToRecord"
+        <action class="com.github.devsegur.pojo2records.actions.TransformToRecord"
                 text="Pojo2Record" id="pojo2record">
             <add-to-group group-id="RefactoringMenu" anchor="first"/>
         </action>
@@ -36,10 +36,10 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.github.devsegur.pojo2records.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.devsegur.pojo2records.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>

@@ -1,4 +1,4 @@
-package listeners
+package com.github.devsegur.pojo2records.listeners
 
 import com.intellij.openapi.application.ApplicationActivationListener
 import com.intellij.openapi.diagnostic.thisLogger

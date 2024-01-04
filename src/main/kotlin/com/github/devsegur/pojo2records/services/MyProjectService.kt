@@ -1,9 +1,9 @@
-package services
+package com.github.devsegur.pojo2records.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import MyBundle
+import com.github.devsegur.pojo2records.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {
