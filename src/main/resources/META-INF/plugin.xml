@@ -1,5 +1,5 @@
 <idea-plugin require-restart="true">
-    <id>com.allfine.software.plugin.pojo2record.pojo2records</id>
+    <id>com.github.devsegur.pojo2records</id>
 
     <name>Pojo2records</name>
 
