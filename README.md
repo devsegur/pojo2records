@@ -1,6 +1,6 @@
 # ![Pojo 2 Records](https://plugins.jetbrains.com/files/21874/339084/icon/pluginIcon.svg) pojo2records
 
-![Build](https://github.com/devsegur/new-dark/workflows/Build/badge.svg)
+![Build](https://github.com/devsegur/pojo2records/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/21874-pojo2records.svg)](https://plugins.jetbrains.com/plugin/21874-pojo2records)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/21874-pojo2records.svg)](https://plugins.jetbrains.com/plugin/21874-pojo2records)
 
