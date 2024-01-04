@@ -29,4 +29,17 @@
             <add-to-group group-id="RefactoringMenu" anchor="first"/>
         </action>
     </actions>
+
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+    </applicationListeners>
 </idea-plugin>
