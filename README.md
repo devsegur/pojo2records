@@ -8,11 +8,16 @@ View the project on [Intellij Marketplace](https://plugins.jetbrains.com/embedda
 
 ## Description
 
+<!-- Plugin description -->
+
 That repository contains a simple tool to convert POJOs to records in batch way.
 
-To use that tool you need to provide a path to the directory or the class with POJOs and click on Refactor > Pojo2Records.
+To use that tool you need to provide a path to the directory or the class with POJOs and click on Refactor >
+Pojo2Records.
 
 If you want to contribute open the PR on GitHub.
+
+<!-- Plugin description end -->
 
 # Images
 
@@ -32,9 +37,9 @@ If you want to contribute open the PR on GitHub.
   Download the [latest release](https://github.com/devsegur/pojo2records/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
-
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
 
 [template]: https://github.com/JetBrains/intellij-platform-plugin-template
+
 [docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
